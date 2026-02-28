@@ -44,7 +44,7 @@ A **Production-Ready Fullstack** web application that analyzes and visualizes yo
 ### Installation
 1.  **Clone the repo:**
     ```bash
-    git clone [https://github.com/YourUsername/spotify-wrap-stats.git](https://github.com/YourUsername/spotify-wrap-stats.git)
+    git clone [https://github.com/Venderoz/spotify-wrap-stats.git](https://github.com/Venderoz/spotify-wrap-stats.git)
     ```
 2.  **Backend:** Configure `application.properties` with your `CLIENT_ID`, `CLIENT_SECRET`, and `REDIRECT_URI`. Run via IDE or `mvn spring-boot:run`.
 3.  **Frontend:** ```bash

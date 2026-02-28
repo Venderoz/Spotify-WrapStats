@@ -1,76 +1,60 @@
 # 🎵 Spotify Wrap-Stats
 
-A **Fullstack** web application that integrates with the Spotify Web API to analyze and visualize your personal listening habits. This project combines a secure **Java Spring Boot** backend with a dynamic **React** frontend, offering deep insights into your top artists, tracks, and genre trends beyond the standard "Spotify Wrapped".
+[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://spotifywrapstats.netlify.app)
+
+A **Production-Ready Fullstack** web application that analyzes and visualizes your personal listening habits. This project features a containerized **Java Spring Boot** backend and a **React** frontend, delivering deep insights into your music story.
+
+## 🔗 Live Application
+* **Frontend:** [https://spotifywrapstats.netlify.app](https://spotifywrapstats.netlify.app)
+* **Backend API:** [https://spotify-wrapstats.onrender.com](https://spotify-wrapstats.onrender.com)
 
 ## ✨ Key Features
 
-* 🔐 **Secure Authentication (OAuth 2.0)** – Login via the official Spotify portal using the Authorization Code Flow.
-* 📊 **Deep Data Analysis** – View your Top Artists and Tracks across different time ranges (4 weeks, 6 months, All time).
-* 🧠 **Smart Genre Analysis** – Custom "Two-Pass" algorithm that filters and groups redundant sub-genres (e.g., merging "pop" and "dance pop") for a cleaner chart.
-* 📝 **Music Story** – An editorial-style narrative component that describes your current musical "vibe".
-* 🎨 **Modern UI** – Responsive design featuring glassmorphism
+* 🔐 **Production OAuth 2.0 Flow** – Secure authentication using Spotify's official Authorization Code Flow.
+* 📊 **Dynamic Insights** – Interactive charts for Top Artists and Tracks (Vite + Chart.js).
+* 🧠 **Genre Filtering** – Custom logic to group redundant sub-genres for cleaner data visualization.
+* 📝 **Personalized Music Story** – An automated narrative summarizing your current musical "vibe".
 
----
+## 🛠️ Tech Stack & Deployment
 
-## 🛠️ Tech Stack
+### Backend (Deployed on Render)
+* **Java 25 / Spring Boot 3** – RESTful API.
+* **Docker** – Multi-stage build for optimized production images.
+* **Spotify Web API** – Integration for real-time user data.
 
-### Backend
-* **Java 17**
-* **Spring Boot 3** (REST API)
-* **Spotify Web API** (Wrapper / Http Interface)
-* **Maven** (Dependency Management)
+### Frontend (Deployed on Netlify)
+* **React (Vite)** – Modern, high-performance frontend.
+* **Chart.js / React-Icons** – Data visualization and polished UI components.
+* **SPA Routing** – Netlify redirect rules for seamless navigation.
 
-### Frontend
-* **React** (Vite)
-* **Chart.js** (Data Visualization)
-* **CSS Modules** (Styling)
+## 🔄 Production Architecture
 
----
+1.  **Frontend (Netlify):** Requests a login URL from the backend.
+2.  **Auth Flow:** User authenticates via Spotify; Spotify redirects back to the Netlify production URL with an `auth_code`.
+3.  **Backend (Render/Docker):** The Spring Boot service exchanges the code for tokens and fetches the user's data.
+4.  **Security:** Cross-Origin Resource Sharing (CORS) is strictly limited to the production frontend domain.
 
-## 🔄 How It Works
-
-1.  **User Action:** User clicks "Login with Spotify".
-2.  **Authorization:** Spotify validates credentials and returns a temporary **Auth Code**.
-3.  **Backend Processing:** The Java backend exchanges this code for a secure **Access Token**.
-4.  **Data Fetching:** The backend performs parallel requests to fetch the user's Profile, History, and Top Items.
-5.  **Visualization:** The React frontend receives the aggregated data and renders the interactive dashboard.
-
----
-
-## 🚀 Getting Started
-
-This project is designed to be run locally using an IDE (like IntelliJ IDEA, Eclipse, or VS Code).
+## 🚀 Local Development
 
 ### Prerequisites
-1.  **Java JDK 17** or higher.
-2.  **Node.js** and **npm**.
-3.  A registered app in the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/):
-    * Get your **Client ID** and **Client Secret**.
-    * Set **Redirect URI** to: `http://localhost:5173/callback` (or your frontend port).
+* **JDK 25** (or update `pom.xml` for older versions).
+* **Node.js & npm**.
+* Spotify Developer credentials.
 
-### Step 1: Backend Setup (Java)
-1.  Open the `backend` folder in your IDE (e.g., IntelliJ IDEA).
-2.  Configure your API keys in `src/main/resources/application.properties` or directly in the `SpotifyController` class (depending on your configuration).
-3.  Allow Maven to download dependencies.
-4.  Run the main application class (click the **Run** button).
-    * *Server will start on port: 8080*
-
-### Step 2: Frontend Setup (React)
-1.  Open the `frontend` folder in your IDE or terminal.
-2.  Install dependencies (first time only):
+### Installation
+1.  **Clone the repo:**
     ```bash
-    npm install
+    git clone [https://github.com/YourUsername/spotify-wrap-stats.git](https://github.com/YourUsername/spotify-wrap-stats.git)
     ```
-3.  Start the development server:
-    ```bash
+2.  **Backend:** Configure `application.properties` with your `CLIENT_ID`, `CLIENT_SECRET`, and `REDIRECT_URI`. Run via IDE or `mvn spring-boot:run`.
+3.  **Frontend:** ```bash
+    cd frontend
+    npm install
     npm run dev
     ```
-4.  Open the application in your browser (usually `http://localhost:5173`).
+    *Note: Ensure `.env` contains `VITE_API_URL=http://localhost:8080`*
 
 ---
-
-## 📄 License
-Created for educational purposes.
-
----
-Created by **Ivan Soboliev**
+## 📄 License & Credits
+Created for educational purposes and portfolio demonstration.
+**Author:** Ivan Soboliev

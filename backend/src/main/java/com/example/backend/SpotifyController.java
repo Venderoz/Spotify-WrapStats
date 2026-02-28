@@ -17,7 +17,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://spotifywrapstats.netlify.app")
 public class SpotifyController {
 
     @Value("${SPOTIFY_CLIENT_ID}")

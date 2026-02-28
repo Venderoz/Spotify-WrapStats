@@ -3,7 +3,7 @@ import './Footer.css';
 function Footer() {
     return (
         <footer className="footer">
-            <p>© 2026 Spotify WrapStats. All rights reserved.</p>
+            <p>© 2026 Spotify WrapStats by Venderoz. All rights reserved.</p>
         </footer>
     );
 }

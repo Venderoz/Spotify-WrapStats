@@ -1,0 +1,204 @@
+*{
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--spotify-primary);
+  color: var(--spotify-text);
+  font-family: Montserrat, sans-serif;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  overflow-x: hidden;
+  background: linear-gradient(-45deg, var(white) 50%, var(--spotify-green) 200%);
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+  transition: 0.1s ease-in-out;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+#root, .app-container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.app-container {
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.dashboard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.welcome-section{
+  display: flex;
+  width: 100%;
+  height: 50vh;
+  padding: 2em;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(340deg, var(--spotify-green) 40%, var(--spotify-primary) 40%);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+  z-index: 0;
+}
+
+.greeting-container {
+  display: flex;
+  height: 100%;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 20px;
+  background-color: rgb(from var(--spotify-secondary) r g b / 50%);
+  box-shadow: 5px 5px 10px rgba(106, 106, 106, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(1px);
+}
+
+.greeting{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  flex-basis: 60%;
+}
+
+.greeting h1 {
+  color: var(--spotify-text);
+  font-size: 3em;
+}
+
+.greeting h1 > a{
+  text-decoration: none;
+  color: var(--spotify-green);
+  transition: 0.1s ease;
+}
+.greeting h1 > a:hover{
+  color: var(--spotify-green-hover);
+}
+
+.img-container{
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  flex-basis: 20%;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container img{
+    width: 150px;
+    height: 150px;
+    box-shadow: 0 0 20px var(--spotify-text);
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+.chart-section{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    padding: 2em;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(165deg, var(--spotify-green) 40%, var(--spotify-primary) 40%);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+    z-index: 0;
+}
+.headliner{
+    font-size: 2rem;
+    color: var(--spotify-primary);
+    width: 100%;
+    padding: 10px;
+    background-color: var(--spotify-green);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.charts{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+.top-artists-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2em;
+    background-image: linear-gradient(230deg, var(--spotify-green) 40%, var(--spotify-primary) 40%);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+    z-index: 0;
+}
+
+.music-story-section{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(130deg, var(--spotify-green) 60%, var(--spotify-primary) 40%);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+    z-index: 0;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 0%;
+  }
+    
+  33% {
+      background-position: 75% 50%; 
+  }
+
+  66% {
+      background-position: 0% 100%;
+  }
+
+  100% {
+      background-position: 0% 0%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+    .headliner{
+      text-align: center;
+    }
+    .welcome-section{
+      height: 80vh;
+    }
+    .greeting-container{
+      flex-direction: column;
+      width: 100%;
+    }
+    .greeting-container > .greeting{
+      order: 2;
+    }
+    .greeting > .action-btn-container{
+      width: 100%;
+    }
+    .greeting-container > .img-container{
+      order: 1;
+    }
+    .charts{
+      flex-direction: column;
+      gap: 20px;
+    }
+}

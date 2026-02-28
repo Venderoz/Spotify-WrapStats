@@ -1,0 +1,15 @@
+body.light-mode {
+  --spotify-green: #28c960;
+  --spotify-primary: #FFFFFF;
+  --spotify-secondary: #f4f4f4;
+  --spotify-text: #191414;
+  --spotify-green-hover: #1ed760;
+}
+
+body.dark-mode {
+  --spotify-green: #1ed35d;
+  --spotify-primary: #191414;
+  --spotify-secondary: #282828;
+  --spotify-text: #f4f4f4;
+  --spotify-green-hover: #24ed6b;
+}

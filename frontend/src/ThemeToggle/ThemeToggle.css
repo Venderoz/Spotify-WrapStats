@@ -1,0 +1,28 @@
+.theme-toggle{
+    position: absolute;
+    width: fit-content;
+    z-index: 6;
+    top: 30px;
+    right: 30px;
+}
+.theme-toggle > svg{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    stroke: var(--spotify-green);
+    transition: .3s ease;
+}
+.theme-toggle > svg:hover{
+    transform: scale(1.1);
+    stroke: var(--spotify-green-hover);
+}
+@media screen and (max-width: 900px) {
+    .theme-toggle{
+        top: 10px;
+        right: 10px;
+    }
+    .theme-toggle > svg{
+        width: 30px;
+        height: 30px;
+    }
+}
